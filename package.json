@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build:ui": "rm -rf dist && cd ../fullstack-open-course/part2/phonebook && npm run build  && cp -r dist ../fullstack-open-backend",
+    "build:ui": "rm -rf dist && cd ../fullstack-open-course/part2/phonebook && npm run build  && cp -r dist ../../../fullstack-open-backend",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
   },
   "keywords": [],
