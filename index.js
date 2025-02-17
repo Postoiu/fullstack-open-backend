@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3001;
 morgan.token('body', (req, res) => JSON.stringify(req.body))
 
 app.use(express.json());
+app.use(express.static('dist'));
 app.use(
     morgan((tokens, req, res) => {
         const result = [
