@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const PORT = 3001;
 
+app.use(express.json());
+
 let persons = [
     { 
         "id": "1",
@@ -25,6 +27,13 @@ let persons = [
       }
 ];
 
+const generateId = () => {
+    const minVal = Math.max(...persons.map(p => Number(p.id)));
+    const maxVal = 1000;
+
+    return String(Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal);
+}
+
 app.get('/', (request, response) => {
     response.send('<h1>Phonebook API</h1>');
 })
@@ -38,6 +47,16 @@ app.get('/info', (request, response) => {
 
 app.get('/api/persons', (request, response) => {
     response.json(persons);
+})
+
+app.post('/api/persons', (request, response) => {
+    const body = request.body;
+
+    const newPerson = {id: generateId(), ...body}
+
+    persons = persons.concat(newPerson);
+
+    response.json(newPerson);
 })
 
 app.get('/api/persons/:id', (request, response) => {
