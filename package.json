@@ -6,7 +6,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "build:ui": "rm -rf dist && cd ../fullstack-open-course/part2/phonebook && npm run build  && cp -r dist ../../../fullstack-open-backend",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,10 @@
     "mongoose": "^8.10.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@stylistic/eslint-plugin-js": "^4.0.0",
+    "eslint": "^9.20.1",
+    "globals": "^15.15.0",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.9"
   }
